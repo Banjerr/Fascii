@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>FASCII</title>
+    <link rel="stylesheet" href="node_modules/angular-material/angular-material.css" media="screen" title="no title" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Cabin:400,500' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Cabin', sans-serif;
+        }
+
+        form {
+            max-width: 94%;
+            display: inline-block;
+        }
+
+        section {
+            max-width: 5%;
+            display: inline-block;
+        }
+
+        h1, h2 {
+            padding: 4px;
+            vertical-align: middle;
+        }
+    </style>
+  </head>
+  <body ng-app="fascii">
+    <md-content>
+        <h1>fASCII</h1>
+        <form ng-controller="SearchFascii as ctrl" ng-submit="$event.preventDefault()">
+            <h2>{{selected_fascii.fascii}}</h2>
+          <md-autocomplete
+              md-selected-item="ctrl.selectedItem"
+              md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+              md-search-text="ctrl.searchText"
+              md-selected-item-change="ctrl.selectedItemChange(item)"
+              md-items="item in ctrl.querySearch(ctrl.searchText)"
+              md-item-text="item.fascii"
+              md-min-length="0"
+              placeholder="What kinda mood ya in?">
+            <md-item-template>
+              <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.fascii}}</span>
+            </md-item-template>
+            <md-not-found>
+              No fASCII mood was found for "{{ctrl.searchText}}".
+            </md-not-found>
+          </md-autocomplete>
+        </form>
+
+        <section ng-controller="ToastCtrl">
+            <button ng-click='boomToast()' ngclipboard data-clipboard-target="input[type=search]" type="button" name="copy" class="copyBtn" id="copyBtn"><i class="fa fa-paperclip"></i></button>
+        </section>
+
+    </md-content>
+  </body>
+
+  <script>
+    // angular stuff
+    require('./node_modules/angular/angular.js')
+    require('./node_modules/angular-material/angular-material.js')
+    require('./node_modules/angular-messages/angular-messages.js')
+    require('./node_modules/angular-animate/angular-animate.js')
+    require('./node_modules/angular-aria/angular-aria.js')
+
+    // clipboard stuff
+    require('./node_modules/clipboard/dist/clipboard.min.js')
+    require('./node_modules/ngclipboard/dist/ngclipboard.min.js')
+
+    // app stuff
+    require('./renderer.js')
+  </script>
+</html>
