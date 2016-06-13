@@ -4,7 +4,7 @@ Super cool ASCII faces, right in your menu bar
 
 ## DEMO
 
-![fASCII Demo]()
+![fASCII Demo](https://github.com/Banjerr/Fascii/blob/master/images/demo.gif)
 
 ## Contributing
 
