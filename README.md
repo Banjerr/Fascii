@@ -1,6 +1,6 @@
 # fASCII
 
-Super cool ASCII faces, right in your menu bar
+Moderately cool ASCII faces, right in your menu bar
 
 ## DEMO
 
