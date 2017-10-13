@@ -1,6 +1,6 @@
 # fASCII
 
-Moderately cool ASCII faces, right in your menu bar
+Moderately cool ASCII (American Standard Code for Information Interchange) faces, right in your menu bar
 
 ## DEMO
 
